@@ -758,6 +758,13 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         if (CPU2.getState()==1){CPU2.executeInstruction();}
     }
     
+    @Override
+    public void onProgramFinished(CPUController cpu) {
+        this.dispose();
+        main_Activity newFrame = new main_Activity();
+        newFrame.setVisible(true);
+    }
+    
     
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
         this.dispose();

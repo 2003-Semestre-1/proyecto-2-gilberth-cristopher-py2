@@ -13,4 +13,5 @@ public interface CPUListener {
     public void onInstructionNotImplemented(CPUController cpu);
     public void onLoadingFileError(CPUController cpu);
     public void onProgramChanged(CPUController cpu);
+    public void onProgramFinished(CPUController cpu);
 }

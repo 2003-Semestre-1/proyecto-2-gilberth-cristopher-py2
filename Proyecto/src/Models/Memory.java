@@ -43,10 +43,27 @@ public class Memory {
      }
      
      public int[] executeMov(Instruction pInstruction){
-         memoryRegister.replace(pInstruction.getInstructionRegister(), pInstruction.getInstructionNumberValue());
-         
-         return getMemoryValues();
-     }
+        if (pInstruction.getSecondaryRegister() != null) {
+            memoryRegister.replace(pInstruction.getInstructionRegister(), memoryRegister.get(pInstruction.getSecondaryRegister()));
+            System.out.println("asdasdasd"+memoryRegister.get(pInstruction.getInstructionRegister()));
+        } else {
+            System.out.println("registro que viene MOV:"+pInstruction.getInstructionRegister());
+            memoryRegister.replace(pInstruction.getInstructionRegister(), pInstruction.getSecondaryValue());
+            System.out.println("Instruccion MOV con nuevo valor"+memoryRegister.get(pInstruction.getInstructionRegister()));
+        }
+        return getMemoryValues();
+    }
+     
+    public int[] executeSwap(Instruction pInstruction){
+        String register1 = pInstruction.getInstructionRegister();
+        String register2 = pInstruction.getSecondaryRegister();
+        int temp = memoryRegister.get(register1);
+        memoryRegister.replace(register1, memoryRegister.get(register2));
+        memoryRegister.replace(register2, temp);
+        return getMemoryValues();
+    }
+
+
      
      public int[] executeSub(Instruction pInstruction){
          int acRegisterValue = memoryRegister.get("AC");
@@ -60,17 +77,41 @@ public class Memory {
          return getMemoryValues();
      }
      
-     public int[] executeInc(Instruction pInstruction){
-         int acRegisterValue = memoryRegister.get("AC");
-         memoryRegister.replace("AC",   acRegisterValue+1);
-         return getMemoryValues();
-     }
+     
+     
+     public int[] executeInc(){
+        int acRegisterValue = memoryRegister.get("AC");
+        memoryRegister.replace("AC",   acRegisterValue+1);
+        return getMemoryValues();
+    }
+
+    public int[] executeInc(Instruction pInstruction){
+        int registerValue = memoryRegister.get(pInstruction.getInstructionRegister());
+        memoryRegister.replace(pInstruction.getInstructionRegister(),   registerValue+1);
+        return getMemoryValues();
+    }
+
+     
+     
      
      public int[] executeDec(Instruction pInstruction){
          int acRegisterValue = memoryRegister.get("AC");
          memoryRegister.replace("AC",   acRegisterValue-1);
          return getMemoryValues();
      }
+     
+     public int[] executeDec() {
+        int acRegisterValue = memoryRegister.get("AC");
+        memoryRegister.replace("AC", acRegisterValue - 1);
+        return getMemoryValues();
+    }
+
+    public int[] executeDecRegister(Instruction pInstruction) {
+        int registerValue = memoryRegister.get(pInstruction.getInstructionRegister());
+        memoryRegister.replace(pInstruction.getInstructionRegister(), registerValue - 1);
+        return getMemoryValues();
+    }
+     
      
      public int[] getMemoryValues(){
          int[] intArray = new int[] {this.getMemoryPosition(),memoryRegister.get("AC"),memoryRegister.get("AX"),memoryRegister.get("BX"),

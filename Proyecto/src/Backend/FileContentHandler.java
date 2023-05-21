@@ -63,24 +63,31 @@ public class FileContentHandler {
         return instructions;
     }
     
+    
    public Instruction parseInstruction(String instructionLine) {
     String[] parts = instructionLine.split(" ");
     for (int i = 0; i < parts.length; i++) {
         parts[i] = parts[i].replace(",", "");
     }
     Instruction instruction = null;
-    if (parts.length == 2) {
-        instruction = new Instruction(parts[0], parts[0], parts[1], 0, 1);
-    }
-    if (parts.length > 2) {
-        try {
-            int value = Integer.parseInt(parts[2]);
-            instruction = new Instruction(parts[0], parts[0], parts[1], value);
-        } catch (NumberFormatException e) {
-            instruction = new Instruction(parts[0], parts[0], parts[1], parts[2]);
+    if (parts[0].equals("INT")) {
+        instruction = new Instruction(parts[0], parts[0], "", 0, 1);
+        instruction.setInterruptCode(parts[1]);
+         System.out.println("Int Code"+parts[1]);
+    }else{
+        if(parts.length == 1){
+            instruction = new Instruction(parts[0], parts[0], "", 0, 1);
+        }else if(parts.length == 2){
+            instruction = new Instruction(parts[0], parts[0], parts[1], 0, 1);
+        }else if(parts.length > 2){
+            try {
+                int value = Integer.parseInt(parts[2]);
+                instruction = new Instruction(parts[0], parts[0], parts[1], value);
+            } catch (NumberFormatException e) {
+                instruction = new Instruction(parts[0], parts[0], parts[1], parts[2]);
+            }
         }
     }
-    
     return instruction;
     }
 
