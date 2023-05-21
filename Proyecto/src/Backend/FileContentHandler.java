@@ -34,7 +34,7 @@ public class FileContentHandler {
                 if(!currentLine.equals("")){
                     String [] instructionArray = currentLine.split(" ");
                     String operationName = instructionArray[0];
-                    String operationRegister = instructionArray[1].substring(0, 2);
+                    String operationRegister = (operationName.equals("INT")) ? instructionArray[1].substring(0, 3) : instructionArray[1].substring(0, 2);
                     int operationValue = (operationName.equals("MOV")) ?  Integer.parseInt(instructionArray[2]) : 0;
                     int weight = detectWeight(operationName);
                     Instruction test = new Instruction(currentLine,operationName,

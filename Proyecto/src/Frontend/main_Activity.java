@@ -6,6 +6,7 @@ package Frontend;
 
 import Backend.CPUController;
 import Backend.CPUListener;
+import Models.Instruction;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
@@ -19,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import org.xml.sax.Attributes;
 
 /**
@@ -32,6 +34,7 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private CPUController CPU1;
     private CPUController CPU2;
     private boolean active = false;
+    private int screenUsed = 0;
     
     
     /**
@@ -106,8 +109,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         jLabelCPU2 = new javax.swing.JLabel();
         jTextfieldScreen = new javax.swing.JTextField();
         jButtonEnter = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jContentScreen = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jCPU1Instruccion = new javax.swing.JTable();
         jLabelCPU3 = new javax.swing.JLabel();
@@ -115,6 +116,8 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         jLabelCPU2Programs = new javax.swing.JLabel();
         jLabelCPU1Programs = new javax.swing.JLabel();
         btnAutoExecute = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jContentScreen = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -521,9 +524,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         jButtonEnter.setText("Enter");
         jButtonEnter.setEnabled(false);
 
-        jContentScreen.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jScrollPane3.setViewportView(jContentScreen);
-
         jCPU1Instruccion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jCPU1Instruccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -569,6 +569,31 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
             }
         });
 
+        jContentScreen.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jContentScreen.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "N°", "Message"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jContentScreen.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(jContentScreen);
+        if (jContentScreen.getColumnModel().getColumnCount() > 0) {
+            jContentScreen.getColumnModel().getColumn(0).setMinWidth(50);
+            jContentScreen.getColumnModel().getColumn(0).setPreferredWidth(3);
+            jContentScreen.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -603,18 +628,19 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                         .addComponent(btnExecute)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextfieldScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonEnter)))
+                        .addComponent(jTextfieldScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addComponent(jButtonEnter)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -629,13 +655,13 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                     .addComponent(btnAutoExecute, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextfieldScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonEnter))
                             .addGap(18, 18, 18)
-                            .addComponent(jScrollPane3))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabelCPU1)
@@ -871,7 +897,7 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private javax.swing.JButton jButtonEnter;
     private javax.swing.JTable jCPU1Instruccion;
     private javax.swing.JTable jCPU2Instruccion;
-    private javax.swing.JList<String> jContentScreen;
+    private javax.swing.JTable jContentScreen;
     private javax.swing.JLabel jLabelCPU1;
     private javax.swing.JLabel jLabelCPU1Programs;
     private javax.swing.JLabel jLabelCPU2;
@@ -880,8 +906,8 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private javax.swing.JLabel jLabelCPU4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextfieldScreen;
     private javax.swing.JPanel jpanelCPU1;
     private javax.swing.JPanel jpanelCPU2;
@@ -945,6 +971,19 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     @Override
     public void onProgramChanged(CPUController cpu) {
         detectCPUSQueue();
+    }
+    
+    public void onInt10h(int memoryDX) {
+        JOptionPane.showMessageDialog(this, "NO LLEGO", 
+                 "List of instructions finalised", JOptionPane.INFORMATION_MESSAGE);
+        String[] columnNames = {"N°", "Message"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        String message = "DX value = "+ String.valueOf(memoryDX);
+                    
+        String data[] = {String.valueOf(screenUsed),message};
+        model.addRow(data);
+        screenUsed++;
+        jContentScreen.setModel(model);
     }
     
     

@@ -104,6 +104,9 @@ public class CPUController {
                     case "INC":
                         fillRegistersUI(memory.executeInc(instruction), instruction.getInstructionName());
                         break;
+                    case "INT":
+                        executeInt(instruction);
+                        break;
                     default:
                         notifyInstructionNotImplemented(); //Error Code 00-Instrucctions no yet implemented
                         break;
@@ -140,6 +143,8 @@ public class CPUController {
         if(currentInstructionPosition < instructionList.size()){
             instructionTable.setRowSelectionInterval(currentInstructionPosition, currentInstructionPosition);}
     }
+    
+    
     
     public void loadNewProgram() throws IOException{
         resetValues();
@@ -204,4 +209,26 @@ public class CPUController {
             listener.onProgramChanged(this);
         }
     }
+    
+    private void onInt10h(int memoryDX) {
+        for (CPUListener listener : listeners) {
+            listener.onInt10h(memoryDX);
+        }
+    }
+    
+    public void executeInt(Instruction instruction) {
+        switch(instruction.getInstructionRegister()){
+            case "10H":
+                onInt10h(memory.getMemoryDX());
+                break;
+            default:
+                break;
+            
+        }
+        currentInstructionPosition++;
+        if(currentInstructionPosition < instructionList.size()){
+            instructionTable.setRowSelectionInterval(currentInstructionPosition, currentInstructionPosition);}
+    }
+
+    
 }

@@ -131,5 +131,10 @@ public class Memory {
          memoryRegister.replace("DX",  0);
          actualMemoryPosition=0;
      
+    }
+     
+     public int getMemoryDX(){
+        int valorDX =  memoryRegister.get("DX");
+        return valorDX;
      }
 }
