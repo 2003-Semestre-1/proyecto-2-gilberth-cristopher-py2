@@ -72,6 +72,11 @@ public class Memory {
          return getMemoryValues();
      }
      
+     public int[] executeInt09H (int value){
+         memoryRegister.replace("DX", value);
+         return getMemoryValues();
+     }
+     
      public int[] getMemoryValues(){
          int[] intArray = new int[] {this.getMemoryPosition(),memoryRegister.get("AC"),memoryRegister.get("AX"),memoryRegister.get("BX"),
          memoryRegister.get("CX"),memoryRegister.get("DX")};

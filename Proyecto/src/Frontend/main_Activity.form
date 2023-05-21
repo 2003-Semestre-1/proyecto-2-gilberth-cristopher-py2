@@ -338,25 +338,25 @@
                           <Group type="102" attributes="0">
                               <Component id="lblDX" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textDX" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblCX" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textCX" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblBX" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textBX" min="-2" max="-2" attributes="0"/>
+                              <Component id="textDX" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="lblAX" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textAX" min="-2" max="-2" attributes="0"/>
+                              <Component id="textAX" pref="38" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblCX" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="textCX" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblBX" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="textBX" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -607,27 +607,27 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblAX1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="textAX1" pref="38" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Component id="lblDX1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textDX1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblCX1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textCX1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textDX1" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblBX1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textBX1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textBX1" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblAX1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCX1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textAX1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textCX1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -859,12 +859,18 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextfieldScreenKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonEnter">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEnterActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
           <AuxValues>

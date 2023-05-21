@@ -220,15 +220,25 @@ public class CPUController {
         switch(instruction.getInstructionRegister()){
             case "10H":
                 onInt10h(memory.getMemoryDX());
+                fillRegistersUI(memory.getMemoryValues(),instruction.getInstructionName());
+                break;
+            case "09H":
+                onInt09h(instruction);
                 break;
             default:
                 break;
             
         }
-        currentInstructionPosition++;
-        if(currentInstructionPosition < instructionList.size()){
-            instructionTable.setRowSelectionInterval(currentInstructionPosition, currentInstructionPosition);}
     }
-
+    
+    public void onInt09h(Instruction instruction){
+        for (CPUListener listener : listeners) {
+            listener.onInt09h(this);
+        }  
+    }
+    
+    public void onInt09h_aux(int value){
+        fillRegistersUI(memory.executeInt09H(value),"INT");  
+    }
     
 }

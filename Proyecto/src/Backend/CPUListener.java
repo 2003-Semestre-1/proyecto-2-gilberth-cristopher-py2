@@ -14,4 +14,5 @@ public interface CPUListener {
     public void onLoadingFileError(CPUController cpu);
     public void onProgramChanged(CPUController cpu);
     public void onInt10h (int value);
+    public void onInt09h(CPUController cpu);
 }
