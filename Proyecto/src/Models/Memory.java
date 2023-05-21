@@ -85,6 +85,10 @@ public class Memory {
          return   intArray;
      }
      
+     public int getValue(String register){
+        return   memoryRegister.get(register);
+     }
+     
     
     public int getAvailableInstruction(){
         return availableInstruction;

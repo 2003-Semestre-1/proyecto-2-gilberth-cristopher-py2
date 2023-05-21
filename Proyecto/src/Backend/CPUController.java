@@ -70,7 +70,9 @@ public class CPUController {
         int contador = 0;
         for (Instruction instruction: instructionList) {
             String instrucctionCompleta = instruction.getInstructionOperator()+" "+
-                    instruction.getInstructionRegister()+ ", " +instruction.getInstructionNumberValue();
+                    instruction.getInstructionRegister()+ ", ";
+            if (instruction.getSecondaryRegister() == "null"){instrucctionCompleta += instruction.getSecondaryValue();}
+            else{instrucctionCompleta += instruction.getSecondaryRegister();}
             String data[] = {String.valueOf(contador), String.valueOf(memory_position),instrucctionCompleta,
             String.valueOf(instruction.getInstructionWeight()),"READY"};
             tblModel.addRow(data);
@@ -107,6 +109,9 @@ public class CPUController {
                     case "INT":
                         executeInt(instruction);
                         break;
+                    case "CMP":
+                        executeCMP(instruction);
+                        break;
                     default:
                         notifyInstructionNotImplemented(); //Error Code 00-Instrucctions no yet implemented
                         break;
@@ -131,13 +136,18 @@ public class CPUController {
     }
     
     public void fillRegistersUI(int[] pRegistersValue, String pInstructionBeingExecuted){
+        
         textFieldList.get(0).setText(String.valueOf(pRegistersValue[0]));
         textFieldList.get(1).setText(String.valueOf(pRegistersValue[1]));
         textFieldList.get(2).setText(pInstructionBeingExecuted);
+        
+        
+        
         textFieldList.get(3).setText(String.valueOf(pRegistersValue[5]));
-        textFieldList.get(4).setText(String.valueOf(pRegistersValue[4]));
-        textFieldList.get(5).setText(String.valueOf(pRegistersValue[3]));
-        textFieldList.get(6).setText(String.valueOf(pRegistersValue[2]));
+        textFieldList.get(4).setText(String.valueOf(pRegistersValue[2]));
+        textFieldList.get(5).setText(String.valueOf(pRegistersValue[4]));
+        textFieldList.get(6).setText(String.valueOf(pRegistersValue[3]));
+        
         
         currentInstructionPosition++;
         if(currentInstructionPosition < instructionList.size()){
@@ -225,6 +235,10 @@ public class CPUController {
             case "09H":
                 onInt09h(instruction);
                 break;
+            case "21H":
+                onInt21h(instruction);
+                fillRegistersUI(memory.getMemoryValues(),instruction.getInstructionName());
+                break;
             default:
                 break;
             
@@ -237,8 +251,31 @@ public class CPUController {
         }  
     }
     
+    
+    public void onInt21h(Instruction instruction){
+        for (CPUListener listener : listeners) {
+            listener.onInt21h(this,instruction.getSecondaryRegister());
+        }  
+    }
+    
     public void onInt09h_aux(int value){
         fillRegistersUI(memory.executeInt09H(value),"INT");  
     }
+    
+    public void executeCMP(Instruction instruction) {
+        int register1 = memory.getValue(instruction.getInstructionRegister());
+        int register2 = memory.getValue(instruction.getSecondaryRegister());
+        onCMP(register1, register2);
+        int[] varialbe = memory.getMemoryValues();
+        System.out.print(varialbe);
+        fillRegistersUI(memory.getMemoryValues(),"CMP"); 
+    }
+    
+    public void onCMP(int register1,int register2){
+        for (CPUListener listener : listeners) {
+            listener.onCMP(register1,register2);
+        }  
+    }
+    
     
 }

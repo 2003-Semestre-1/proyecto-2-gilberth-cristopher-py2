@@ -468,22 +468,27 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                 .addGap(18, 18, 18)
                 .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addComponent(lblAX1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textAX1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                                .addComponent(lblDX1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textDX1))
+                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                                .addComponent(lblCX1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textCX1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 8, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addComponent(lblDX1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textDX1))
-                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addComponent(lblBX1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textBX1))
-                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addComponent(lblCX1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textCX1)))
-                .addContainerGap())
+                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAX1)
+                            .addComponent(lblBX1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textAX1)
+                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                                .addComponent(textBX1)
+                                .addContainerGap())))))
         );
         jpanelCPU2Layout.setVerticalGroup(
             jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1014,10 +1019,9 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     
     public void onInt10h(int memoryDX) {
         
-        String[] columnNames = {"N°", "Message"};
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
-        String message = "DX value = "+ String.valueOf(memoryDX);
-                    
+        
+        DefaultTableModel model = (DefaultTableModel) jContentScreen.getModel();
+        String message = "DX value = "+ String.valueOf(memoryDX);         
         String data[] = {String.valueOf(screenUsed),message};
         model.addRow(data);
         screenUsed++;
@@ -1033,6 +1037,50 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         jTextfieldScreen.setEnabled(true);
         jButtonEnter.setEnabled(true); 
         Temporal = cpu;
+        
+    }
+
+    @Override
+    public void onInt21h(CPUController cpu, String secondaryRegister) {
+        DefaultTableModel model = (DefaultTableModel) jContentScreen.getModel();
+        String message;
+        switch(secondaryRegister){
+            case "3ch":
+                message = "File Created";
+                break;
+            case "3dh":
+                message = "File Open";
+                break;
+            case "4dh":
+                message = "File Read";
+                break;
+            case "40h":
+                message = "File Writen";
+                break;
+            case "41h":
+                message = "File Del";
+                break;        
+            default:
+                message = "Error on 21H";;
+            
+        }           
+        String data[] = {String.valueOf(screenUsed),message};
+        model.addRow(data);
+        screenUsed++;
+        jContentScreen.setModel(model);
+    }
+
+    
+    public void onCMP(int register1, int register2) {
+        DefaultTableModel model = (DefaultTableModel) jContentScreen.getModel();
+        String message;
+        if (register1 == register2){message = "Equals";}  
+        else if (register1 > register2 ){message = "Greater";} 
+        else{message = "Less";} 
+        String data[] = {String.valueOf(screenUsed),message};
+        model.addRow(data);
+        screenUsed++;
+        jContentScreen.setModel(model);
     }
     
     

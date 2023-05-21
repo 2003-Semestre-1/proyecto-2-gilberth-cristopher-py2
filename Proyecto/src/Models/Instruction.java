@@ -45,6 +45,8 @@ public class Instruction {
     private int instructionNumberValue;
     private int instructionWeight;
     private int instructionRemainingTime;
+    private int secondaryValue = 0; // Add this line
+    private String secondaryRegister = "null"; // Add this line
 
     
     public Instruction(String pInstructionName,String pInstructionOperator,String pInstructionRegister,int pInstructionNumberValue,int pInstructionWeight){
@@ -52,9 +54,25 @@ public class Instruction {
         setInstructionOperator (pInstructionOperator);
         setInstructionRegister(pInstructionRegister);
         setInstructionNumberValue(pInstructionNumberValue);
-        setInstructionWeight(pInstructionWeight);
-        setInstructionRemainingTime(pInstructionWeight);
+        setInstructionWeight(1);
+        setInstructionRemainingTime(1);
     }
+    
+    // New constructor for an instruction with an operator, a register and a second register.
+    public Instruction(String pInstructionName, String pInstructionOperator, String pInstructionRegister, String secondaryRegister) {
+        this(pInstructionName, pInstructionOperator, pInstructionRegister, 1, 1); // Assuming weight and remaining time are 1
+        this.secondaryRegister = secondaryRegister;
+        System.out.println(secondaryRegister);
+    }
+
+    // New constructor for an instruction with an operator, a register and a secondary value.
+    public Instruction(String pInstructionName, String pInstructionOperator, String pInstructionRegister, int secondaryValue) {
+        this(pInstructionName, pInstructionOperator, pInstructionRegister, secondaryValue, 1); // Assuming weight and remaining time are the same as the secondary value
+        this.secondaryValue = secondaryValue;
+    }
+    
+    
+    
     
     public String getInstructionName() {
         return InstructionName;
@@ -75,10 +93,34 @@ public class Instruction {
     public String getInstructionOperator() {
         return instructionOperator;
     }
-
-    public String getInstructionRegister() {
-        return instructionRegister;
+    
+    public int getSecondaryValue() {
+        return secondaryValue;
     }
+
+    public String getSecondaryRegister() {
+        return secondaryRegister;
+    }
+    
+    public void setSecondaryValue(int secondaryValue) {
+        this.secondaryValue = secondaryValue;
+    }
+
+    public void setSecondaryRegister(String secondaryRegister) {
+        this.secondaryRegister = secondaryRegister;
+    }
+    
+   
+    public String getInstructionRegister() {
+    // Check if the instruction register is null or empty.
+    // If it is, return an empty string.
+    // Otherwise, return the register.
+    if(instructionRegister == null || instructionRegister.isEmpty()) {
+        return "";
+    }
+    return instructionRegister;
+}
+
 
     public int getInstructionNumberValue() {
         return instructionNumberValue;
@@ -104,6 +146,8 @@ public class Instruction {
     }
     
     
+    
+    
     public String BinaryInstructionNumberValueAux(String pBinaryNumber, int pIntFlag){
          int requiredZeros = 8 - pBinaryNumber.length();
          String zeros=(pIntFlag==1)? "1":"0";
@@ -124,7 +168,7 @@ public class Instruction {
         this.InstructionName = pInstructionName;
     }
 
-    private void setInstructionRegister(String pInstructionRegister) {
+    public void setInstructionRegister(String pInstructionRegister) {
         this.instructionRegister = pInstructionRegister;
     }
 
