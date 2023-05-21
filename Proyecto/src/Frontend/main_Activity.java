@@ -90,6 +90,8 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         textBX = new javax.swing.JTextField();
         textCX = new javax.swing.JTextField();
         textDX = new javax.swing.JTextField();
+        lblAC1 = new javax.swing.JLabel();
+        textPila = new javax.swing.JTextField();
         jLabelCPU1 = new javax.swing.JLabel();
         jLabelCPU2 = new javax.swing.JLabel();
         jTextfieldScreen = new javax.swing.JTextField();
@@ -299,6 +301,16 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         textDX.setBorder(null);
         textDX.setFocusable(false);
 
+        lblAC1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblAC1.setText("Stack:");
+
+        textPila.setEditable(false);
+        textPila.setBackground(new java.awt.Color(204, 255, 255));
+        textPila.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textPila.setText("   ");
+        textPila.setBorder(null);
+        textPila.setFocusable(false);
+
         javax.swing.GroupLayout jpanelCPU1Layout = new javax.swing.GroupLayout(jpanelCPU1);
         jpanelCPU1.setLayout(jpanelCPU1Layout);
         jpanelCPU1Layout.setHorizontalGroup(
@@ -317,7 +329,11 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                     .addGroup(jpanelCPU1Layout.createSequentialGroup()
                         .addComponent(lblIR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textIR, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textIR, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelCPU1Layout.createSequentialGroup()
+                        .addComponent(lblAC1)
+                        .addGap(7, 7, 7)
+                        .addComponent(textPila, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jpanelCPU1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelCPU1Layout.createSequentialGroup()
@@ -362,7 +378,9 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpanelCPU1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDX)
-                    .addComponent(textDX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textDX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAC1)
+                    .addComponent(textPila, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -685,10 +703,10 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 610));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 690));
 
         pack();
         setLocationRelativeTo(null);
@@ -942,6 +960,7 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private javax.swing.JPanel jpanelCPU1;
     private javax.swing.JPanel jpanelCPU2;
     private javax.swing.JLabel lblAC;
+    private javax.swing.JLabel lblAC1;
     private javax.swing.JLabel lblAC2;
     private javax.swing.JLabel lblAX;
     private javax.swing.JLabel lblAX2;
@@ -969,6 +988,7 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private javax.swing.JTextField textIR2;
     private javax.swing.JTextField textPC;
     private javax.swing.JTextField textPC2;
+    private javax.swing.JTextField textPila;
     private javax.swing.JTextField textfieldMemorySize;
     // End of variables declaration//GEN-END:variables
 
