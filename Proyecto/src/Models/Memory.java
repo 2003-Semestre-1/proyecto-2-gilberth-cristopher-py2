@@ -5,6 +5,7 @@
 package Models;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -16,6 +17,8 @@ public class Memory {
     private int memorySize=0;
     private int actualMemoryPosition=0;
     private int availableInstruction=0;
+    
+    private ArrayList<Integer> stack = new ArrayList<>();
     private  HashMap<String, Integer> memoryRegister = new HashMap<String, Integer>(){{
         put("AC",0);
         put("AX",0);
@@ -72,6 +75,14 @@ public class Memory {
          return getMemoryValues();
      }
      
+     public int[] executePush(Instruction pInstruction){
+         int saveValue = memoryRegister.get(pInstruction.getInstructionRegister());
+         stack.add(0, saveValue);
+         return getMemoryValues();
+     }
+     
+     
+     
      public int[] executeInt09H (int value){
          memoryRegister.replace("DX", value);
          return getMemoryValues();
@@ -98,6 +109,11 @@ public class Memory {
     public int getMemoryPosition() {
         return this.actualMemoryPosition;
     }
+    
+    public int getStackValue(){
+         if (stack.isEmpty()){return -1;}
+         else {return stack.get(0);}
+     }
    
     
     public int getMemorySize() {

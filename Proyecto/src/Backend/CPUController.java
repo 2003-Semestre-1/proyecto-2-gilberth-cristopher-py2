@@ -112,6 +112,9 @@ public class CPUController {
                     case "CMP":
                         executeCMP(instruction);
                         break;
+                    case "PUSH":
+                        fillRegistersUI(memory.executePush(instruction), instruction.getInstructionName());
+                        break;
                     default:
                         notifyInstructionNotImplemented(); //Error Code 00-Instrucctions no yet implemented
                         break;
@@ -141,12 +144,13 @@ public class CPUController {
         textFieldList.get(1).setText(String.valueOf(pRegistersValue[1]));
         textFieldList.get(2).setText(pInstructionBeingExecuted);
         
+        textFieldList.get(3).setText(String.valueOf(memory.getStackValue()));
         
         
-        textFieldList.get(3).setText(String.valueOf(pRegistersValue[5]));
-        textFieldList.get(4).setText(String.valueOf(pRegistersValue[2]));
-        textFieldList.get(5).setText(String.valueOf(pRegistersValue[4]));
-        textFieldList.get(6).setText(String.valueOf(pRegistersValue[3]));
+        textFieldList.get(4).setText(String.valueOf(pRegistersValue[5]));
+        textFieldList.get(5).setText(String.valueOf(pRegistersValue[2]));
+        textFieldList.get(6).setText(String.valueOf(pRegistersValue[4]));
+        textFieldList.get(7).setText(String.valueOf(pRegistersValue[3]));
         
         
         currentInstructionPosition++;
@@ -154,8 +158,10 @@ public class CPUController {
             instructionTable.setRowSelectionInterval(currentInstructionPosition, currentInstructionPosition);}
     }
     
-    
-    
+    /**
+     *
+     * @throws IOException
+     */
     public void loadNewProgram() throws IOException{
         resetValues();
         loadInstructions_aux();
