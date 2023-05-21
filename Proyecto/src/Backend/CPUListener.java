@@ -18,4 +18,5 @@ public interface CPUListener {
     public void onInt21h(CPUController cpu, String secondaryRegister);
     public void onCMP(int register1, int register2);
     public void onNoStackMemory(CPUController aThis);
+    public void onProgramFinished(CPUController cpu);
 }

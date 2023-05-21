@@ -45,8 +45,9 @@ public class Instruction {
     private int instructionNumberValue;
     private int instructionWeight;
     private int instructionRemainingTime;
-    private int secondaryValue = 0; // Add this line
-    private String secondaryRegister = "null"; // Add this line
+    private int secondaryValue = 0;
+    private String secondaryRegister;
+    private String interruptCode;
 
     
     public Instruction(String pInstructionName,String pInstructionOperator,String pInstructionRegister,int pInstructionNumberValue,int pInstructionWeight){
@@ -58,20 +59,37 @@ public class Instruction {
         setInstructionRemainingTime(1);
     }
     
-    // New constructor for an instruction with an operator, a register and a second register.
+    public Instruction(String instructionName, String instructionOperator, String instructionRegister, String secondaryRegister, int weight) {
+        this.InstructionName = instructionName;
+        this.instructionOperator = instructionOperator;
+        this.instructionRegister = instructionRegister;
+        this.secondaryRegister = secondaryRegister;
+        this.instructionWeight = weight;
+    }
+    
+   
+
+
+    
+   
     public Instruction(String pInstructionName, String pInstructionOperator, String pInstructionRegister, String secondaryRegister) {
         this(pInstructionName, pInstructionOperator, pInstructionRegister, 1, 1); // Assuming weight and remaining time are 1
         this.secondaryRegister = secondaryRegister;
-        System.out.println(secondaryRegister);
     }
 
-    // New constructor for an instruction with an operator, a register and a secondary value.
     public Instruction(String pInstructionName, String pInstructionOperator, String pInstructionRegister, int secondaryValue) {
-        this(pInstructionName, pInstructionOperator, pInstructionRegister, secondaryValue, 1); // Assuming weight and remaining time are the same as the secondary value
+        this(pInstructionName, pInstructionOperator, pInstructionRegister, secondaryValue, secondaryValue); // Assuming weight and remaining time are the same as the secondary value
         this.secondaryValue = secondaryValue;
     }
     
     
+    public String getInterruptCode() {
+        return interruptCode;
+    }
+
+    public void setInterruptCode(String interruptCode) {
+        this.interruptCode = interruptCode;
+    }
     
     
     public String getInstructionName() {

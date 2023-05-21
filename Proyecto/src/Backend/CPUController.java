@@ -104,7 +104,31 @@ public class CPUController {
                         fillRegistersUI(memory.executeAdd(instruction), instruction.getInstructionName());
                         break;
                     case "INC":
-                        fillRegistersUI(memory.executeInc(instruction), instruction.getInstructionName());
+                        if (instruction.getInstructionRegister() == null) {
+                            fillRegistersUI(memory.executeInc(), instruction.getInstructionName());
+                        } else {
+                            fillRegistersUI(memory.executeInc(instruction), instruction.getInstructionName());
+                        }
+                        break;
+                        
+                    case "DEC":
+                        if(instruction.getInstructionRegister().isEmpty()) { // If no register specified, decrement AC.
+                            fillRegistersUI(memory.executeDec(), instruction.getInstructionName());
+                        } else { // If a register is specified, decrement that.
+                            fillRegistersUI(memory.executeDecRegister(instruction), instruction.getInstructionName());
+                        }
+                        break;
+                    case "SWAP":
+                        fillRegistersUI(memory.executeSwap(instruction), instruction.getInstructionName());
+                        break;
+                        
+                        
+                    case "INT":
+                        System.out.println("Entra 0"+instruction.getInterruptCode());
+                        if (instruction.getInterruptCode().equals("20H")) {
+                            System.out.println("Entra 1");
+                            finishProgram();
+                        }
                         break;
                     case "INT":
                         executeInt(instruction);
@@ -139,6 +163,18 @@ public class CPUController {
             
         }
         
+    }
+    
+    public void notifyProgramFinished() {
+        for (CPUListener listener : listeners) {
+            listener.onProgramFinished(this);
+        }
+    }
+    
+    private void finishProgram() {
+        System.out.println("Entra 2");
+        resetValues();
+        notifyProgramFinished();
     }
     
     public void fillRegistersUI(int[] pRegistersValue, String pInstructionBeingExecuted){
