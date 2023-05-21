@@ -121,15 +121,6 @@ public class CPUController {
                     case "SWAP":
                         fillRegistersUI(memory.executeSwap(instruction), instruction.getInstructionName());
                         break;
-                        
-                        
-                    case "INT":
-                        System.out.println("Entra 0"+instruction.getInterruptCode());
-                        if (instruction.getInterruptCode().equals("20H")) {
-                            System.out.println("Entra 1");
-                            finishProgram();
-                        }
-                        break;
                     case "INT":
                         executeInt(instruction);
                         break;
@@ -280,6 +271,9 @@ public class CPUController {
             case "09H":
                 onInt09h(instruction);
                 break;
+            case "20H":
+                onInt20h();
+                break;
             case "21H":
                 onInt21h(instruction);
                 fillRegistersUI(memory.getMemoryValues(),instruction.getInstructionName());
@@ -294,6 +288,10 @@ public class CPUController {
         for (CPUListener listener : listeners) {
             listener.onInt09h(this);
         }  
+    }
+    
+    public void onInt20h(){
+        finishProgram();
     }
     
     
