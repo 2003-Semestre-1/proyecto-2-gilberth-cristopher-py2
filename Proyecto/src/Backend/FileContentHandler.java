@@ -22,7 +22,7 @@ public class FileContentHandler {
     
     public FileContentHandler(){
     }
-    
+    /*
     @SuppressWarnings("unchecked") //In this case that warinig is shown because I am parsing directly the result of new FileReader(pSelectedFileRoute)
     public ArrayList<Instruction> getFileContent(String pSelectedFileRoute) throws FileNotFoundException, IOException{
          ArrayList<Instruction> instructionList= new ArrayList<Instruction>();
@@ -50,6 +50,43 @@ public class FileContentHandler {
         }
         return instructionList;
     }
+*/
+    public ArrayList<Instruction> getFileContent(String fileName) throws IOException {
+        ArrayList<Instruction> instructions = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                Instruction instruction = parseInstruction(line);
+                instructions.add(instruction);
+            }
+        }
+        return instructions;
+    }
+    
+   public Instruction parseInstruction(String instructionLine) {
+    String[] parts = instructionLine.split(" ");
+    for (int i = 0; i < parts.length; i++) {
+        parts[i] = parts[i].replace(",", "");
+    }
+    Instruction instruction = null;
+    if (parts.length == 2) {
+        instruction = new Instruction(parts[0], parts[0], parts[1], 0, 1);
+    }
+    if (parts.length > 2) {
+        try {
+            int value = Integer.parseInt(parts[2]);
+            instruction = new Instruction(parts[0], parts[0], parts[1], value);
+        } catch (NumberFormatException e) {
+            instruction = new Instruction(parts[0], parts[0], parts[1], parts[2]);
+        }
+    }
+    
+    return instruction;
+    }
+
+
+    
+    
     
     public int detectWeight(String OperationName){
         switch (OperationName) {
