@@ -79,6 +79,11 @@ public class Memory {
          int saveValue = memoryRegister.get(pInstruction.getInstructionRegister());
          stack.add(0, saveValue);
          return getMemoryValues();
+    }
+     
+    public int[] executePop(Instruction pInstruction){
+         memoryRegister.replace(pInstruction.getInstructionRegister(),getStackValue());
+         return getMemoryValues();
      }
      
      

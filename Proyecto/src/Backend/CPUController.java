@@ -115,6 +115,9 @@ public class CPUController {
                     case "PUSH":
                         fillRegistersUI(memory.executePush(instruction), instruction.getInstructionName());
                         break;
+                    case "POP":
+                        executePOP (instruction);
+                        break;
                     default:
                         notifyInstructionNotImplemented(); //Error Code 00-Instrucctions no yet implemented
                         break;
@@ -281,6 +284,21 @@ public class CPUController {
         for (CPUListener listener : listeners) {
             listener.onCMP(register1,register2);
         }  
+    }
+    
+    public void onNoStackMemory(){
+        this.state = 0;
+        for (CPUListener listener : listeners) {
+            listener.onNoStackMemory(this);
+        }  
+    }
+    
+    public void executePOP(Instruction instruction){
+        if (memory.getStackValue() == -1){
+        onNoStackMemory();}
+        else{
+            fillRegistersUI(memory.executePop(instruction), instruction.getInstructionName());
+        }
     }
     
     

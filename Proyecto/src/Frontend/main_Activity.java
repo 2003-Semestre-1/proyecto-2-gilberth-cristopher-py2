@@ -1334,6 +1334,12 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         screenUsed++;
         jContentScreen.setModel(model);
     }
+
+    @Override
+    public void onNoStackMemory(CPUController aThis) {
+        JOptionPane.showMessageDialog(this, "Theres an Error on POP instruction on " + aThis.getCPUName(), 
+                 "Cpu will be terminated", JOptionPane.INFORMATION_MESSAGE);
+    }
     
     
     
