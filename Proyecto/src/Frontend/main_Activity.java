@@ -90,21 +90,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         textBX = new javax.swing.JTextField();
         textCX = new javax.swing.JTextField();
         textDX = new javax.swing.JTextField();
-        jpanelCPU2 = new javax.swing.JPanel();
-        lblPC1 = new javax.swing.JLabel();
-        lblIR1 = new javax.swing.JLabel();
-        lblAC1 = new javax.swing.JLabel();
-        lblAX1 = new javax.swing.JLabel();
-        lblBX1 = new javax.swing.JLabel();
-        lblCX1 = new javax.swing.JLabel();
-        lblDX1 = new javax.swing.JLabel();
-        textPC1 = new javax.swing.JTextField();
-        textIR1 = new javax.swing.JTextField();
-        textAC1 = new javax.swing.JTextField();
-        textAX1 = new javax.swing.JTextField();
-        textBX1 = new javax.swing.JTextField();
-        textCX1 = new javax.swing.JTextField();
-        textDX1 = new javax.swing.JTextField();
         jLabelCPU1 = new javax.swing.JLabel();
         jLabelCPU2 = new javax.swing.JLabel();
         jTextfieldScreen = new javax.swing.JTextField();
@@ -118,6 +103,21 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
         btnAutoExecute = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jContentScreen = new javax.swing.JTable();
+        jpanelCPU2 = new javax.swing.JPanel();
+        lblPC2 = new javax.swing.JLabel();
+        lblIR2 = new javax.swing.JLabel();
+        lblAC2 = new javax.swing.JLabel();
+        lblAX2 = new javax.swing.JLabel();
+        lblBX2 = new javax.swing.JLabel();
+        lblCX2 = new javax.swing.JLabel();
+        lblDX2 = new javax.swing.JLabel();
+        textPC2 = new javax.swing.JTextField();
+        textIR2 = new javax.swing.JTextField();
+        textAC2 = new javax.swing.JTextField();
+        textAX2 = new javax.swing.JTextField();
+        textBX2 = new javax.swing.JTextField();
+        textCX2 = new javax.swing.JTextField();
+        textDX2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -366,158 +366,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpanelCPU2.setBackground(new java.awt.Color(204, 255, 255));
-        jpanelCPU2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jpanelCPU2.setForeground(new java.awt.Color(255, 255, 255));
-
-        lblPC1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPC1.setText("PC:");
-
-        lblIR1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblIR1.setText("IR:");
-
-        lblAC1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblAC1.setText("AC:");
-
-        lblAX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblAX1.setText("AX:");
-
-        lblBX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblBX1.setText("BX:");
-
-        lblCX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblCX1.setText("CX:");
-
-        lblDX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblDX1.setText("DX:");
-
-        textPC1.setEditable(false);
-        textPC1.setBackground(new java.awt.Color(204, 255, 255));
-        textPC1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textPC1.setText("         ");
-        textPC1.setBorder(null);
-        textPC1.setFocusable(false);
-
-        textIR1.setEditable(false);
-        textIR1.setBackground(new java.awt.Color(204, 255, 255));
-        textIR1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textIR1.setText("    ");
-        textIR1.setBorder(null);
-        textIR1.setFocusable(false);
-        textIR1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIR1ActionPerformed(evt);
-            }
-        });
-
-        textAC1.setEditable(false);
-        textAC1.setBackground(new java.awt.Color(204, 255, 255));
-        textAC1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textAC1.setText("   ");
-        textAC1.setBorder(null);
-        textAC1.setFocusable(false);
-
-        textAX1.setEditable(false);
-        textAX1.setBackground(new java.awt.Color(204, 255, 255));
-        textAX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textAX1.setText("      ");
-        textAX1.setBorder(null);
-        textAX1.setFocusable(false);
-
-        textBX1.setEditable(false);
-        textBX1.setBackground(new java.awt.Color(204, 255, 255));
-        textBX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textBX1.setText("    ");
-        textBX1.setBorder(null);
-        textBX1.setFocusable(false);
-
-        textCX1.setEditable(false);
-        textCX1.setBackground(new java.awt.Color(204, 255, 255));
-        textCX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textCX1.setText("     ");
-        textCX1.setBorder(null);
-        textCX1.setFocusable(false);
-
-        textDX1.setEditable(false);
-        textDX1.setBackground(new java.awt.Color(204, 255, 255));
-        textDX1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textDX1.setText("     ");
-        textDX1.setBorder(null);
-        textDX1.setFocusable(false);
-
-        javax.swing.GroupLayout jpanelCPU2Layout = new javax.swing.GroupLayout(jpanelCPU2);
-        jpanelCPU2.setLayout(jpanelCPU2Layout);
-        jpanelCPU2Layout.setHorizontalGroup(
-            jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                            .addComponent(lblPC1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textPC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                            .addComponent(lblAC1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textAC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addComponent(lblIR1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textIR1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                                .addComponent(lblDX1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textDX1))
-                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                                .addComponent(lblCX1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textCX1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 8, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAX1)
-                            .addComponent(lblBX1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textAX1)
-                            .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                                .addComponent(textBX1)
-                                .addContainerGap())))))
-        );
-        jpanelCPU2Layout.setVerticalGroup(
-            jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelCPU2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPC1)
-                    .addComponent(lblAX1)
-                    .addComponent(textPC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textAX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIR1)
-                    .addComponent(lblBX1)
-                    .addComponent(textIR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textBX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAC1)
-                    .addComponent(lblCX1)
-                    .addComponent(textAC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textCX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDX1)
-                    .addComponent(textDX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         jLabelCPU1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelCPU1.setText("CPU 1");
 
@@ -609,6 +457,147 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
             jContentScreen.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
+        jpanelCPU2.setBackground(new java.awt.Color(204, 255, 255));
+        jpanelCPU2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelCPU2.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblPC2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblPC2.setText("PC:");
+
+        lblIR2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblIR2.setText("IR:");
+
+        lblAC2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblAC2.setText("AC:");
+
+        lblAX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblAX2.setText("AX:");
+
+        lblBX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblBX2.setText("BX:");
+
+        lblCX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblCX2.setText("CX:");
+
+        lblDX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblDX2.setText("DX:");
+
+        textPC2.setEditable(false);
+        textPC2.setBackground(new java.awt.Color(204, 255, 255));
+        textPC2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textPC2.setText("         ");
+        textPC2.setBorder(null);
+        textPC2.setFocusable(false);
+
+        textIR2.setEditable(false);
+        textIR2.setBackground(new java.awt.Color(204, 255, 255));
+        textIR2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textIR2.setText("    ");
+        textIR2.setBorder(null);
+        textIR2.setFocusable(false);
+
+        textAC2.setEditable(false);
+        textAC2.setBackground(new java.awt.Color(204, 255, 255));
+        textAC2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textAC2.setText("   ");
+        textAC2.setBorder(null);
+        textAC2.setFocusable(false);
+
+        textAX2.setEditable(false);
+        textAX2.setBackground(new java.awt.Color(204, 255, 255));
+        textAX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textAX2.setText("      ");
+        textAX2.setBorder(null);
+        textAX2.setFocusable(false);
+
+        textBX2.setEditable(false);
+        textBX2.setBackground(new java.awt.Color(204, 255, 255));
+        textBX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textBX2.setText("    ");
+        textBX2.setBorder(null);
+        textBX2.setFocusable(false);
+
+        textCX2.setEditable(false);
+        textCX2.setBackground(new java.awt.Color(204, 255, 255));
+        textCX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textCX2.setText("     ");
+        textCX2.setBorder(null);
+        textCX2.setFocusable(false);
+
+        textDX2.setEditable(false);
+        textDX2.setBackground(new java.awt.Color(204, 255, 255));
+        textDX2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        textDX2.setText("     ");
+        textDX2.setBorder(null);
+        textDX2.setFocusable(false);
+
+        javax.swing.GroupLayout jpanelCPU2Layout = new javax.swing.GroupLayout(jpanelCPU2);
+        jpanelCPU2.setLayout(jpanelCPU2Layout);
+        jpanelCPU2Layout.setHorizontalGroup(
+            jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblPC2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textPC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblAC2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textAC2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblIR2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textIR2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblDX2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textDX2))
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblAX2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textAX2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblCX2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textCX2))
+                    .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                        .addComponent(lblBX2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textBX2)))
+                .addContainerGap())
+        );
+        jpanelCPU2Layout.setVerticalGroup(
+            jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelCPU2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPC2)
+                    .addComponent(lblAX2)
+                    .addComponent(textPC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textAX2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIR2)
+                    .addComponent(lblBX2)
+                    .addComponent(textIR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textBX2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAC2)
+                    .addComponent(lblCX2)
+                    .addComponent(textAC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCX2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpanelCPU2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDX2)
+                    .addComponent(textDX2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -616,7 +605,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpanelCPU2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabelCPU1)
@@ -630,7 +618,8 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                         .addGap(45, 45, 45)
                         .addComponent(jLabelCPU4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelCPU2Programs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelCPU2Programs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpanelCPU2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -689,8 +678,9 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
                                 .addComponent(jLabelCPU2)
                                 .addComponent(jLabelCPU4)
                                 .addComponent(jLabelCPU2Programs))
-                            .addGap(18, 18, 18)
-                            .addComponent(jpanelCPU2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jpanelCPU2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(11, 11, 11)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
@@ -809,10 +799,6 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void textIR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIR1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textIR1ActionPerformed
 
     private void btnAutoExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutoExecuteActionPerformed
         active = !active;
@@ -956,33 +942,33 @@ public class main_Activity extends javax.swing.JFrame implements CPUListener {
     private javax.swing.JPanel jpanelCPU1;
     private javax.swing.JPanel jpanelCPU2;
     private javax.swing.JLabel lblAC;
-    private javax.swing.JLabel lblAC1;
+    private javax.swing.JLabel lblAC2;
     private javax.swing.JLabel lblAX;
-    private javax.swing.JLabel lblAX1;
+    private javax.swing.JLabel lblAX2;
     private javax.swing.JLabel lblBX;
-    private javax.swing.JLabel lblBX1;
+    private javax.swing.JLabel lblBX2;
     private javax.swing.JLabel lblCX;
-    private javax.swing.JLabel lblCX1;
+    private javax.swing.JLabel lblCX2;
     private javax.swing.JLabel lblDX;
-    private javax.swing.JLabel lblDX1;
+    private javax.swing.JLabel lblDX2;
     private javax.swing.JLabel lblIR;
-    private javax.swing.JLabel lblIR1;
+    private javax.swing.JLabel lblIR2;
     private javax.swing.JLabel lblPC;
-    private javax.swing.JLabel lblPC1;
+    private javax.swing.JLabel lblPC2;
     private javax.swing.JTextField textAC;
-    private javax.swing.JTextField textAC1;
+    private javax.swing.JTextField textAC2;
     private javax.swing.JTextField textAX;
-    private javax.swing.JTextField textAX1;
+    private javax.swing.JTextField textAX2;
     private javax.swing.JTextField textBX;
-    private javax.swing.JTextField textBX1;
+    private javax.swing.JTextField textBX2;
     private javax.swing.JTextField textCX;
-    private javax.swing.JTextField textCX1;
+    private javax.swing.JTextField textCX2;
     private javax.swing.JTextField textDX;
-    private javax.swing.JTextField textDX1;
+    private javax.swing.JTextField textDX2;
     private javax.swing.JTextField textIR;
-    private javax.swing.JTextField textIR1;
+    private javax.swing.JTextField textIR2;
     private javax.swing.JTextField textPC;
-    private javax.swing.JTextField textPC1;
+    private javax.swing.JTextField textPC2;
     private javax.swing.JTextField textfieldMemorySize;
     // End of variables declaration//GEN-END:variables
 
